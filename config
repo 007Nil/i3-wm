@@ -38,7 +38,7 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)/rofi(a programlauncher)
 bindsym $mod+shift+d exec dmenu_run -nb black -sb tomato -l 10
-bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 280 -opacity "85" -bw 0 -bc "#2f343f" -bg "#2f343f" -fg " #f3f4f5" -hlbg "#2f343f" -hlfg "#9575cd" -font "System San Francisco Display 18"
+bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 290 -opacity "85" -bw 0 -bc "#2f343f" -bg "#2f343f" -fg " #f3f4f5" -hlbg "#2f343f" -hlfg "#9575cd" -font "System San Francisco Display 18"
 
 # For use with xfce4 whisker popup menu in Mint XFCE:
 # bindsym $mod+Shift+d exec dmenu_run
@@ -139,7 +139,7 @@ set $ws4 4
 set $ws5 5
 set $ws6 6
 set $ws7 VLC
-set $ws8 8
+set $ws8 Image
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -182,7 +182,7 @@ bindsym $mod+F4 exec chromium-browser
 # assign [class="Pcmanfm"] $ws3
 # assign [class="Skype"] $ws5
 #assign [class="Subl3"] $ws3
-#assign [class="Chromium"] $ws2
+ assign [class= "Ristretto"] $ws8
  assign [class="vlc"] $ws7
 
 # Open specific applications in floating mode
@@ -209,7 +209,6 @@ for_window [urgent=latest] focus
 bindsym $mod+Shift+c reload
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec xfce4-session-logout
-
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -260,6 +259,7 @@ bar {
     }
 }
 exec --no-startup-id nitrogen --restore
+
 #exec --no-startup-id synergy
 
 #############################
@@ -324,3 +324,10 @@ exec_always --no-startup-id fix_xcursor
 
 #**********Blue Lock Screen*************
 bindsym $mod+shift+x exec /bin/lock
+#****************************************
+bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+
+#screen shorts
+
+bindsym $mod+Print exec scrot -u -e 'mv $f /home/nil/Pictures/'
+
