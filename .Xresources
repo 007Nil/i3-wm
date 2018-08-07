@@ -1,11 +1,3 @@
-Xft.dpi:       96
-Xft.antialias: true
-Xft.hinting:   true
-Xft.rgba:      rgb
-Xft.autohint:  false
-Xft.hintstyle: hintslight
-Xft.lcdfilter: lcddefault
-
 XTerm*background:        #222D31
 XTerm*foreground:        #d8d8d8
 XTerm*pointerColor:      #1ABB9B
@@ -55,7 +47,7 @@ XTerm*selectToClipboard: true
 *color15:                         #f8f8f8
 
 Xcursor.theme: xcursor-breeze
-Xcursor.size:                     0
+Xcursor.size:                     1
 
 URxvt.font:                       9x15,xft:TerminessTTFNerdFontMono
 
@@ -64,7 +56,7 @@ URxvt.font:                       9x15,xft:TerminessTTFNerdFontMono
 ! URxvt.bold.font: -xos4-terminus-bold-r-normal--16-160-72-72-c-80-iso10646-1
 !! terminus names see end of file!
 
-URxvt.depth:                      32
+URxvt.depth:                      0
 URxvt.background:                 [90]#000000
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
@@ -74,9 +66,9 @@ URxvt*foreground:                 #17F018
 URxvt*saveLines:                  5000
 
 ! for 'fake' transparency (without Compton) uncomment the following three lines
-! URxvt*inheritPixmap:            true
-! URxvt*transparent:              true
-! URxvt*shading:                  138
+ URxvt*inheritPixmap:            true
+ URxvt*transparent:              true
+ URxvt*shading:                  13
 
 ! Normal copy-paste keybindings without perls
 URxvt.iso14755:                   false
