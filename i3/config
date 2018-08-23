@@ -40,10 +40,6 @@ bindsym $mod+Shift+q kill
 bindsym $mod+shift+d exec dmenu_run -nb black -sb tomato -l 10
 bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 290 -opacity "85" -bw 0 -bc "#2f343f" -bg "#2f343f" -fg " #f3f4f5" -hlbg "#2f343f" -hlfg "#9575cd" -font "System San Francisco Display 18"
 
-# For use with xfce4 whisker popup menu in Mint XFCE:
-# bindsym $mod+Shift+d exec dmenu_run
-# bindsym $mod+d exec --no-startup-id fce4-popup-whiskermenu
-
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -118,10 +114,10 @@ bindsym $mod+n border normal
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
 
-#exec --no-startup-id volumeicon
+exec --no-startup-id volumeicon
 exec --no-startup-id pulseaudio
 exec --no-startup-id pa-applet
-exec --no-startup-id xfce4-volumed
+exec --no-startup-id  xfce4-volumed 
 bindsym $mod+Ctrl+m exec pavucontrol
 
 ################################################################################################
@@ -131,12 +127,12 @@ bindsym $mod+Ctrl+m exec pavucontrol
 # to display names or symbols instead of plain workspace numbers you can use
 # something like: set $ws1 1:mail
 #                 set $ws2 2:
-set $ws1 1
-set $ws2 2
-set $ws3 3
-set $ws4 4
-set $ws5 5
-set $ws6 6
+set $ws1 1: 
+set $ws2 2: 
+set $ws3 3: 
+set $ws4 4: 
+set $ws5 5: 
+set $ws6 6: 
 set $ws7 7
 set $ws8 8
 set $ws9 9
@@ -177,21 +173,21 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws0; workspace $ws0
 
-#autostart Applications
+#Applications Shortcuts
 bindsym $mod+F2 exec firefox
-bindsym $mod+F3 exec rxvt -e  ranger 
-bindsym $mod+F4 exec chromium-browser
+bindsym $mod+F4 exec rxvt -e  ranger 
+bindsym $mod+F3 exec chromium-browser
 bindsym $mod+t exec thunar
 bindsym $mod+c exec codeblocks
+bindsym $mod+Shift+s exec steam
 
 # Open applications on specific workspaces
-# assign [class="Thunderbird"] $ws1
-# assign [class="Pale moon"] $ws2
-# assign [class="Pcmanfm"] $ws3
-# assign [class="Skype"] $ws5
-#assign [class="Subl3"] $ws3
-# assign [class= "Ristretto"] $ws8
-# assign [class="vlc"] $ws7
+  assign [class="Firefo"] $ws1
+  assign [class="Chromium-browser"] $ws3
+  assign [class="Thunar"] $ws4
+  assign [class="Steam"] $ws5
+  assign [class="Codeblocks"] $ws6
+
 
 # Open specific applications in floating mode
 #for_window [class="Calamares"] floating enable border normal
@@ -215,7 +211,7 @@ for_window [urgent=latest] focus
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec xfce4-session-logout
+ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -265,9 +261,6 @@ bar {
         urgent_workspace   #2f343a    #900000    #ffffff
     }
 }
-exec --no-startup-id nitrogen --restore
-
-#exec --no-startup-id synergy
 
 #############################
 ### settings for i3-gaps: ###
@@ -325,19 +318,26 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
+#Autostart Applications
 exec --no-startup-id compton -f
+exec --no-startup-id nm-applet
 bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
+bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+exec --no-startup-id xfce4-power-manager
 exec_always --no-startup-id fix_xcursor
-exec_always --no-startup-id blueman-applet
 
 #**********Blur Lock Screen*************
-bindsym $mod+shift+x exec /bin/lock
+bindsym $mod+shift+x exec ~/.config/i3/lock
 #****************************************
-bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
-
 #screen shorts
 
 bindsym $mod+Print exec scrot -u -e 'mv $f /home/nil/Pictures/'
 bindsym Shift+Print exec scrot -e 'mv $f /home/nil/Pictures/'
 
+# Background
+exec --no-startup-id feh --bg-scale /home/nil/Wallpapers/tobias-keller-104263-unsplash.jpg
+
+# hide/unhide i3status bar
+bindsym $mod+m bar mode toggle
 
