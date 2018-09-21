@@ -341,3 +341,11 @@ exec --no-startup-id feh --bg-scale /home/nil/Wallpapers/tobias-keller-104263-un
 # hide/unhide i3status bar
 bindsym $mod+m bar mode toggle
 
+## quick terminal
+exec --no-startup-id urxvt -name dropdown
+for_window [instance="dropdown"] floating enable
+for_window [instance="dropdown"] resize set 625 400
+for_window [instance="dropdown"] move scratchpad
+for_window [instance="dropdown"] border pixel 3
+
+
