@@ -31,7 +31,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec urxvt
-bindsym $mod+shift+Return exec xfce4-terminal
+bindsym $mod+shift+Return exec urxvt -e screenfetch 
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -174,39 +174,39 @@ bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws0; workspace $ws0
 
 #Applications Shortcuts
- bindsym $mod+F2 exec google-chrome
+ bindsym $mod+F2 exec chromium-browser
  bindsym $mod+F3 exec rxvt -e  ranger 
 #bindsym $mod+F3 exec chromium-browser
- bindsym $mod+t exec thunar
+#bindsym $mod+t exec thunar
  bindsym $mod+c exec codeblocks
- bindsym $mod+Shift+s exec steam 
+#bindsym $mod+Shift+s exec steam 
  bindsym $mod+Shift+p exec rxvt -e poweroff
  bindsym $mod+Ctrl+r exec rxvt -e reboot
- bindsym $mod+Shift+n exec nvidia-settings
+#bindsym $mod+Shift+n exec nvidia-settings
  bindsym $mod+F5 [instance="dropdown"] scratchpad show
 
 # Open applications on specific workspaces
-  assign [class="Google-chrome"] $ws1
-  assign [class="Chromium-browser"] $ws3
-  assign [class="Thunar"] $ws4
-  assign [class="Steam"] $ws5
+  assign [class="Chromium-browser"] $ws1
+# assign [class="Chromium-browser"] $ws3
+# assign [class="Thunar"] $ws4
+# assign [class="Steam"] $ws5
   assign [class="Codeblocks"] $ws6
-  assign [class="Nvidia-settings"] $ws0 
+# assign [class="Nvidia-settings"] $ws0 
 
 
 # Open specific applications in floating mode
 #for_window [class="Calamares"] floating enable border normal
 #for_window [class="Clipgrab"] floating enable
-for_window [title="File Transfer*"] floating enable
+#for_window [title="File Transfer*"] floating enable
 for_window [class="GParted"] floating enable border normal
 #for_window [class="Lightdm-gtk-greeter-settings"] floating enable
-for_window [class="Lxappearance"] floating enable sticky enable border 
+#for_window [class="Lxappearance"] floating enable sticky enable border 
 #for_window [class="qt5ct"] floating enable sticky enable border normal
 #for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
 #for_window [class="Skype"] floating enable border normal
 #for_window [class="Thus"] floating enable border normal
 #for_window [class="(?i)virtualbox"] floating enable border normal
-for_window [class="Xfburn"] floating enable
+#for_window [class="Xfburn"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -326,12 +326,12 @@ mode "$mode_gaps_outer" {
 
 #Autostart Applications
  exec --no-startup-id compton -f
-#exec --no-startup-id nm-applet
+ exec --no-startup-id nm-applet
  bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
-#bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+ bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
  exec --no-startup-id xfce4-power-manager
  exec_always --no-startup-id fix_xcursor
- exec --no-startup-id wicd-client
+#exec --no-startup-id wicd-client
 
 #**********Blur Lock Screen*************
 bindsym $mod+shift+x exec ~/.config/i3/lock
@@ -348,7 +348,7 @@ exec --no-startup-id feh --bg-scale /home/nil/Wallpapers/871169.jpg
 bindsym $mod+m bar mode toggle
 
 
-## quick terminal
+## quickterminal
 exec --no-startup-id urxvt -name dropdown
 for_window [instance="dropdown"] floating enable
 for_window [instance="dropdown"] resize set 625 400
