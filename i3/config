@@ -342,7 +342,7 @@ bindsym $mod+Print exec scrot -u -e 'mv $f /home/nil/Pictures/'
 bindsym Shift+Print exec scrot -e 'mv $f /home/nil/Pictures/'
 
 # Background
-exec --no-startup-id feh --bg-scale /home/nil/Wallpapers/871169.jpg
+exec --no-startup-id feh --bg-scale /home/nil/wallpapers/antlers.jpg
 
 # hide/unhide i3status bar
 bindsym $mod+m bar mode toggle
