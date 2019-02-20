@@ -10,8 +10,6 @@ all of those folders are under .config files
 
 #Blur Lock Screen - i3lock
 
-*****This script is not written by me*****
-
     Dependency to run this script
      
    1. i3lock
