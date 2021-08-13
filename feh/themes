@@ -1,5 +1,0 @@
-feh -B black \
--d \
--N \
---geometry 1280x800 \
---auto-zoom

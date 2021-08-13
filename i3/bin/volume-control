@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ "$1" == 'UP' ]; then
+	pactl set-sink-volume 1 +6db +6db
+elif [ "$1" == 'DOWN' ]; then
+	pactl set-sink-volume 1 -6db -6db
+elif [ "$1" == 'MUTE' ]; then
+	pactl set-sink-mute 1 'toggle'
+
+fi

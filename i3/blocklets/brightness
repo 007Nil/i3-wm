@@ -1,0 +1,16 @@
+#!/bin/bash
+TYPE="${BLOCK_INSTANCE:-brightness}"
+
+CUR_BRI=`cat /sys/class/backlight/intel_backlight/actual_brightness`
+MAX_BRI=`cat /sys/class/backlight/intel_backlight/max_brightness`
+MID_BRI=$(($MAX_BRI/2))
+
+if [ $CUR_BRI -eq $MAX_BRI ]; then
+	echo " "
+elif [ "$CUR_BRI" -gt "$MID_BRI" ]; then
+	echo " "
+elif [ "$CUR_BRI" -lt "$MID_BRI" ] && [ "$CUR_BRI" -gt 40 ]; then
+	echo " "
+elif [ "$CUR_BRI" -lt 40 ]; then
+	echo " "
+fi

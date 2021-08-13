@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Be sure to change the WLAN interface
+echo " $(iw dev wlo1 link | grep SSID | cut -d " " -f 2-)"
+
+case "$BLOCK_BUTTON" in
+	1) exec urxvt -e nmtui
+		;;
+esac
