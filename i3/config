@@ -7,7 +7,7 @@ font pango:System San Francisco Display 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec rxvt-unicode
+bindsym $mod+Return exec urxvt -depth 32 -bg [80]#000000
 #bindsym mod+shift+Return exec urxvt -e screenfetch
 
 # kill focused window
@@ -281,10 +281,10 @@ bindsym $mod+p exec flameshot gui
 # Latest i3 configs
 # date: 07-24-2021
 
-bindsym $mod+equal exec exec light -A 5
-bindsym $mod+minus exec light -U 5
-bindsym XF86MonBrightnessUp exec exec light -A 5
-bindsym XF86MonBrightnessDown exec light -U 5
+bindsym $mod+equal exec light -A 5 && notify-send "Brightness Up"
+bindsym $mod+minus exec light -U 5 && notify-send "Brightness Down"
+bindsym XF86MonBrightnessUp exec light -A 5 && notify-send "Brightness Up"
+bindsym XF86MonBrightnessDown exec light -U 5 && notify-send "Brightness Down"
 
 #external monitor script
 bindsym $mod+Ctrl+Right exec /home/$USER/.i3/bin/external_monitor.py --right
@@ -297,3 +297,11 @@ bindsym $mod+Ctrl+e exec /home/$USER/.i3/bin/external_monitor.py --external
 bindsym XF86AudioRaiseVolume exec /home/$USER/.i3/bin/volume-control UP
 bindsym XF86AudioLowerVolume exec /home/$USER/.i3/bin/volume-control DOWN
 bindsym XF86AudioMute exec /home/$USER/.i3/bin/volume-control MUTE
+
+
+#----------Notification Demon--------------------#
+
+exec --no-startup-id dunst
+
+
+

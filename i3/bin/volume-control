@@ -1,10 +1,12 @@
 #!/bin/bash
 
+VOL=`pactl list sinks | awk 'NR==1{print $2}' | sed 's/#//g'`
+
 if [ "$1" == 'UP' ]; then
-	pactl set-sink-volume 1 +6db +6db
+	pactl set-sink-volume $VOL +6db +6db && notify-send 'Volume Up'
 elif [ "$1" == 'DOWN' ]; then
-	pactl set-sink-volume 1 -6db -6db
+	pactl set-sink-volume $VOL -6db -6db && notify-send 'Volume Down'
 elif [ "$1" == 'MUTE' ]; then
-	pactl set-sink-mute 1 'toggle'
+	pactl set-sink-mute $VOL 'toggle' && notify-send 'Volume Mute'
 
 fi

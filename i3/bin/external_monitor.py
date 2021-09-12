@@ -3,10 +3,10 @@
 import argparse
 import subprocess
 # xrandr --output VGA1 --right-of LVDS1
-INTERNAL = "eDP-1"
-EXTERNAL = "HDMI-1"
-HDMI_CONNECT = "HDMI-1 connected"
-PRIMARY_CMD = "xrandr --output HDMI-1 --right-of LVDS1"
+INTERNAL = "eDP-1-1"
+EXTERNAL = "HDMI-1-1"
+HDMI_CONNECT = "HDMI-1-1 connected"
+#PRIMARY_CMD = "xrandr --output HDMI-1-1 --right-of LVDS1"
 
 
 def is_connected():
@@ -18,7 +18,7 @@ def is_connected():
 
 
 def exe_cmd(direction):
-    active_internal_cmd = 'xrandr --output eDP-1 --primary --mode 1366x768'
+    active_internal_cmd = 'xrandr --output eDP-1-1 --primary --mode 1366x768'
     PRIMARY_CMD = "xrandr --output {} --{}-of {} --mode 1920x1080".format(
         EXTERNAL, direction, INTERNAL)
     feh_cmd = "feh --bg-scale /home/$USER/Downloads/anime.jpg"
@@ -37,12 +37,12 @@ def right():
         exe_cmd("right")
 
 def external():
-    external_cmd = 'xrandr --output eDP-1 --off'
+    external_cmd = 'xrandr --output eDP-1-1 --off'
     feh_cmd = "feh --bg-scale /home/$USER/Downloads/anime.jpg"
     subprocess.run(external_cmd,shell=True)
     subprocess.run(feh_cmd,shell=True)
 def internal():
-    internal_cmd = 'xrandr --output HDMI-1 --off'
+    internal_cmd = 'xrandr --output HDMI-1-1 --off'
     subprocess.run(internal_cmd,shell=True)
 
 
