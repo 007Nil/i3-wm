@@ -3,7 +3,9 @@
 import argparse
 import subprocess
 # xrandr --output VGA1 --right-of LVDS1
+#INTERNAL = "eDP1"
 INTERNAL = "eDP-1-1"
+#EXTERNAL = "HDMI1"
 EXTERNAL = "HDMI-1-1"
 HDMI_CONNECT = "HDMI-1-1 connected"
 #PRIMARY_CMD = "xrandr --output HDMI-1-1 --right-of LVDS1"

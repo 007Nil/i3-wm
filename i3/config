@@ -302,6 +302,6 @@ bindsym XF86AudioMute exec /home/$USER/.i3/bin/volume-control MUTE
 #----------Notification Demon--------------------#
 
 exec --no-startup-id dunst
-
+bindsym $mod+Shift+m exec thunderbird
 
 
